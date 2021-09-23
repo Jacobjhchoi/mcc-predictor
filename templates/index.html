@@ -1,0 +1,714 @@
+<!-- 
+Jacob Choi
+Championship Win Predictor
+-->
+<!DOCTYPE html>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: rubik
+  }
+
+  h1 {
+    color: #fff;
+    text-align: center
+  }
+
+  h2 {
+    color: #fff;
+    text-align: center
+  }
+
+  h3 {
+    color: #fff;
+    text-align: center
+  }
+
+  p {
+    color: #fff;
+    text-align: center
+  }
+
+  section {
+    height: 100vh
+  }
+
+  .body1 {
+    background-color: #718387
+  }
+
+  .one {
+    background-color: #24252A;
+    ;
+  }
+
+  #logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 1000px
+  }
+
+  .btn-success {
+    background-color: #587850
+  }
+
+  #logo {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh
+  }
+</style>
+<html>
+  <head>
+    <title>MCC Predictor</title>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://static-cdn.jtvnw.net/jtv_user_pictures/team-mcc-team_logo_image-ef4a328a81e14a989888232a9a0f6270-600x600.png">
+  </head>
+  <body class="body1">
+    <div class="container4">
+      <section class="one">
+        <section class="container">
+          <img src="https://images.squarespace-cdn.com/content/v1/5971ce3b15d5dbd23f753394/1594374991464-OC1Q2ZY1IRE5UC8J3BBE/MC+Championship+Logo+Alpha+3200x1230.png?format=1000w" id="logo" class="img-fluid" alt="Responsive image">
+        </section>
+        <h2>
+          <form action="{{ url_for('prediction')}}" method="POST">
+            <select id="tm1" name="tm1">
+              <option value="5up">5up</option>
+              <option value="Antfrost">Antfrost</option>
+              <option value="Asnazum">Asnazum</option>
+              <option value="BBPaws">BBPaws</option>
+              <option value="BadBoyHalo">BadBoyHalo</option>
+              <option value="Bitzel">Bitzel</option>
+              <option value="Calvin">Calvin</option>
+              <option value="CaptainPuffy">CaptainPuffy</option>
+              <option value="CaptainSparklez">CaptainSparklez</option>
+              <option value="ConnorEatsPants">ConnorEatsPants</option>
+              <option value="Cubfan135">Cubfan135</option>
+              <option value="DanTDM">DanTDM</option>
+              <option value="DethRidge">DethRidge</option>
+              <option value="DrGluon">DrGluon</option>
+              <option value="Dream">Dream</option>
+              <option value="Eret">Eret</option>
+              <option value="F1NN5TER">F1NN5TER</option>
+              <option value="FalseSymmetry">FalseSymmetry</option>
+              <option value="FlorianFunke">FlorianFunke</option>
+              <option value="Fundy">Fundy</option>
+              <option value="GeminiTay">GeminiTay</option>
+              <option value="GeorgeNotFound">GeorgeNotFound</option>
+              <option value="GizzyGazza">GizzyGazza</option>
+              <option value="Graser10">Graser10</option>
+              <option value="Grian">Grian</option>
+              <option value="HBomb94">HBomb94</option>
+              <option value="Illumina">Illumina</option>
+              <option value="InTheLittleWood">InTheLittleWood</option>
+              <option value="ItsJustOriah">ItsJustOriah</option>
+              <option value="JackManifoldTV">JackManifoldTV</option>
+              <option value="JackSucksAtLife">JackSucksAtLife</option>
+              <option value="JamesCharles">JamesCharles</option>
+              <option value="JamesTurner">JamesTurner</option>
+              <option value="Jameskii">Jameskii</option>
+              <option value="JcTheCaster">JcTheCaster</option>
+              <option value="JeromeASF">JeromeASF</option>
+              <option value="Jestannii">Jestannii</option>
+              <option value="JoeyGraceffa">JoeyGraceffa</option>
+              <option value="KaraCorvus">KaraCorvus</option>
+              <option value="KarlJacobs">KarlJacobs</option>
+              <option value="Katherineelizabeth">Katherineelizabeth</option>
+              <option value="KingBurren">KingBurren</option>
+              <option value="Kontuz">Kontuz</option>
+              <option value="Krinios">Krinios</option>
+              <option value="Krtzyy">Krtzyy</option>
+              <option value="KryticZeuZ">KryticZeuZ</option>
+              <option value="LDShadowLady">LDShadowLady</option>
+              <option value="Laurenzside">Laurenzside</option>
+              <option value="Ludwig">Ludwig</option>
+              <option value="Marielitai">Marielitai</option>
+              <option value="Mefs">Mefs</option>
+              <option value="Michaelmcchill">Michaelmcchill</option>
+              <option value="MiniMuka">MiniMuka</option>
+              <option value="NettyPlays">NettyPlays</option>
+              <option value="Nihachu">Nihachu</option>
+              <option value="OrionSound">OrionSound</option>
+              <option value="PEARLBYTEZ">PEARLBYTEZ</option>
+              <option value="PearlescentMoon">PearlescentMoon</option>
+              <option value="PeteZahHutt">PeteZahHutt</option>
+              <option value="Ph1LzA">Ph1LzA</option>
+              <option value="Plumbella">Plumbella</option>
+              <option value="Pokimane">Pokimane</option>
+              <option value="Ponk">Ponk</option>
+              <option value="PrestonPlayz">PrestonPlayz</option>
+              <option value="Punz">Punz</option>
+              <option value="Quackity">Quackity</option>
+              <option value="Quig">Quig</option>
+              <option value="RTGame">RTGame</option>
+              <option value="Rafessor">Rafessor</option>
+              <option value="Ranboo">Ranboo</option>
+              <option value="Rendog">Rendog</option>
+              <option value="RipMika">RipMika</option>
+              <option value="Roguskii">Roguskii</option>
+              <option value="Ryguyrocky">Ryguyrocky</option>
+              <option value="SB737">SB737</option>
+              <option value="Sapnap">Sapnap</option>
+              <option value="ScotGriswold">ScotGriswold</option>
+              <option value="Seapeekay">Seapeekay</option>
+              <option value="Shubble">Shubble</option>
+              <option value="Skeppy">Skeppy</option>
+              <option value="Smajor1995">Smajor1995</option>
+              <option value="Smallishbeans">Smallishbeans</option>
+              <option value="Sneegsnag">Sneegsnag</option>
+              <option value="SolidarityGaming">SolidarityGaming</option>
+              <option value="Spifey">Spifey</option>
+              <option value="Steph0sims">Steph0sims</option>
+              <option value="Strawburry17">Strawburry17</option>
+              <option value="Sylvee">Sylvee</option>
+              <option value="TankMatt">TankMatt</option>
+              <option value="TapL">TapL</option>
+              <option value="Technoblade">Technoblade</option>
+              <option value="TommyInnit">TommyInnit</option>
+              <option value="ToxxxicSupport">ToxxxicSupport</option>
+              <option value="Tubbo">Tubbo</option>
+              <option value="Vikkstar">Vikkstar</option>
+              <option value="Vixella">Vixella</option>
+              <option value="Voiceoverpete">Voiceoverpete</option>
+              <option value="WilburSoot">WilburSoot</option>
+              <option value="Wisp">Wisp</option>
+              <option value="Wolv21">Wolv21</option>
+              <option value="Yammy">Yammy</option>
+              <option value="YeetDaisie">YeetDaisie</option>
+              <option value="fWhip">fWhip</option>
+              <option value="fruitberries">fruitberries</option>
+              <option value="iHasCupquake">iHasCupquake</option>
+              <option value="iJevin">iJevin</option>
+              <option value="iicbunny">iicbunny</option>
+              <option value="iskall85">iskall85</option>
+              <option value="uwuCorbin">uwuCorbin</option>
+              <option value="vGumiho">vGumiho</option>
+            </select>
+            <select id="tm2" name="tm2">
+              <option value="5up">5up</option>
+              <option value="Antfrost">Antfrost</option>
+              <option value="Asnazum">Asnazum</option>
+              <option value="BBPaws">BBPaws</option>
+              <option value="BadBoyHalo">BadBoyHalo</option>
+              <option value="Bitzel">Bitzel</option>
+              <option value="Calvin">Calvin</option>
+              <option value="CaptainPuffy">CaptainPuffy</option>
+              <option value="CaptainSparklez">CaptainSparklez</option>
+              <option value="ConnorEatsPants">ConnorEatsPants</option>
+              <option value="Cubfan135">Cubfan135</option>
+              <option value="DanTDM">DanTDM</option>
+              <option value="DethRidge">DethRidge</option>
+              <option value="DrGluon">DrGluon</option>
+              <option value="Dream">Dream</option>
+              <option value="Eret">Eret</option>
+              <option value="F1NN5TER">F1NN5TER</option>
+              <option value="FalseSymmetry">FalseSymmetry</option>
+              <option value="FlorianFunke">FlorianFunke</option>
+              <option value="Fundy">Fundy</option>
+              <option value="GeminiTay">GeminiTay</option>
+              <option value="GeorgeNotFound">GeorgeNotFound</option>
+              <option value="GizzyGazza">GizzyGazza</option>
+              <option value="Graser10">Graser10</option>
+              <option value="Grian">Grian</option>
+              <option value="HBomb94">HBomb94</option>
+              <option value="Illumina">Illumina</option>
+              <option value="InTheLittleWood">InTheLittleWood</option>
+              <option value="ItsJustOriah">ItsJustOriah</option>
+              <option value="JackManifoldTV">JackManifoldTV</option>
+              <option value="JackSucksAtLife">JackSucksAtLife</option>
+              <option value="JamesCharles">JamesCharles</option>
+              <option value="JamesTurner">JamesTurner</option>
+              <option value="Jameskii">Jameskii</option>
+              <option value="JcTheCaster">JcTheCaster</option>
+              <option value="JeromeASF">JeromeASF</option>
+              <option value="Jestannii">Jestannii</option>
+              <option value="JoeyGraceffa">JoeyGraceffa</option>
+              <option value="KaraCorvus">KaraCorvus</option>
+              <option value="KarlJacobs">KarlJacobs</option>
+              <option value="Katherineelizabeth">Katherineelizabeth</option>
+              <option value="KingBurren">KingBurren</option>
+              <option value="Kontuz">Kontuz</option>
+              <option value="Krinios">Krinios</option>
+              <option value="Krtzyy">Krtzyy</option>
+              <option value="KryticZeuZ">KryticZeuZ</option>
+              <option value="LDShadowLady">LDShadowLady</option>
+              <option value="Laurenzside">Laurenzside</option>
+              <option value="Ludwig">Ludwig</option>
+              <option value="Marielitai">Marielitai</option>
+              <option value="Mefs">Mefs</option>
+              <option value="Michaelmcchill">Michaelmcchill</option>
+              <option value="MiniMuka">MiniMuka</option>
+              <option value="NettyPlays">NettyPlays</option>
+              <option value="Nihachu">Nihachu</option>
+              <option value="OrionSound">OrionSound</option>
+              <option value="PEARLBYTEZ">PEARLBYTEZ</option>
+              <option value="PearlescentMoon">PearlescentMoon</option>
+              <option value="PeteZahHutt">PeteZahHutt</option>
+              <option value="Ph1LzA">Ph1LzA</option>
+              <option value="Plumbella">Plumbella</option>
+              <option value="Pokimane">Pokimane</option>
+              <option value="Ponk">Ponk</option>
+              <option value="PrestonPlayz">PrestonPlayz</option>
+              <option value="Punz">Punz</option>
+              <option value="Quackity">Quackity</option>
+              <option value="Quig">Quig</option>
+              <option value="RTGame">RTGame</option>
+              <option value="Rafessor">Rafessor</option>
+              <option value="Ranboo">Ranboo</option>
+              <option value="Rendog">Rendog</option>
+              <option value="RipMika">RipMika</option>
+              <option value="Roguskii">Roguskii</option>
+              <option value="Ryguyrocky">Ryguyrocky</option>
+              <option value="SB737">SB737</option>
+              <option value="Sapnap">Sapnap</option>
+              <option value="ScotGriswold">ScotGriswold</option>
+              <option value="Seapeekay">Seapeekay</option>
+              <option value="Shubble">Shubble</option>
+              <option value="Skeppy">Skeppy</option>
+              <option value="Smajor1995">Smajor1995</option>
+              <option value="Smallishbeans">Smallishbeans</option>
+              <option value="Sneegsnag">Sneegsnag</option>
+              <option value="SolidarityGaming">SolidarityGaming</option>
+              <option value="Spifey">Spifey</option>
+              <option value="Steph0sims">Steph0sims</option>
+              <option value="Strawburry17">Strawburry17</option>
+              <option value="Sylvee">Sylvee</option>
+              <option value="TankMatt">TankMatt</option>
+              <option value="TapL">TapL</option>
+              <option value="Technoblade">Technoblade</option>
+              <option value="TommyInnit">TommyInnit</option>
+              <option value="ToxxxicSupport">ToxxxicSupport</option>
+              <option value="Tubbo">Tubbo</option>
+              <option value="Vikkstar">Vikkstar</option>
+              <option value="Vixella">Vixella</option>
+              <option value="Voiceoverpete">Voiceoverpete</option>
+              <option value="WilburSoot">WilburSoot</option>
+              <option value="Wisp">Wisp</option>
+              <option value="Wolv21">Wolv21</option>
+              <option value="Yammy">Yammy</option>
+              <option value="YeetDaisie">YeetDaisie</option>
+              <option value="fWhip">fWhip</option>
+              <option value="fruitberries">fruitberries</option>
+              <option value="iHasCupquake">iHasCupquake</option>
+              <option value="iJevin">iJevin</option>
+              <option value="iicbunny">iicbunny</option>
+              <option value="iskall85">iskall85</option>
+              <option value="uwuCorbin">uwuCorbin</option>
+              <option value="vGumiho">vGumiho</option>
+            </select>
+            <select id="tm3" name="tm3">
+              <option value="5up">5up</option>
+              <option value="Antfrost">Antfrost</option>
+              <option value="Asnazum">Asnazum</option>
+              <option value="BBPaws">BBPaws</option>
+              <option value="BadBoyHalo">BadBoyHalo</option>
+              <option value="Bitzel">Bitzel</option>
+              <option value="Calvin">Calvin</option>
+              <option value="CaptainPuffy">CaptainPuffy</option>
+              <option value="CaptainSparklez">CaptainSparklez</option>
+              <option value="ConnorEatsPants">ConnorEatsPants</option>
+              <option value="Cubfan135">Cubfan135</option>
+              <option value="DanTDM">DanTDM</option>
+              <option value="DethRidge">DethRidge</option>
+              <option value="DrGluon">DrGluon</option>
+              <option value="Dream">Dream</option>
+              <option value="Eret">Eret</option>
+              <option value="F1NN5TER">F1NN5TER</option>
+              <option value="FalseSymmetry">FalseSymmetry</option>
+              <option value="FlorianFunke">FlorianFunke</option>
+              <option value="Fundy">Fundy</option>
+              <option value="GeminiTay">GeminiTay</option>
+              <option value="GeorgeNotFound">GeorgeNotFound</option>
+              <option value="GizzyGazza">GizzyGazza</option>
+              <option value="Graser10">Graser10</option>
+              <option value="Grian">Grian</option>
+              <option value="HBomb94">HBomb94</option>
+              <option value="Illumina">Illumina</option>
+              <option value="InTheLittleWood">InTheLittleWood</option>
+              <option value="ItsJustOriah">ItsJustOriah</option>
+              <option value="JackManifoldTV">JackManifoldTV</option>
+              <option value="JackSucksAtLife">JackSucksAtLife</option>
+              <option value="JamesCharles">JamesCharles</option>
+              <option value="JamesTurner">JamesTurner</option>
+              <option value="Jameskii">Jameskii</option>
+              <option value="JcTheCaster">JcTheCaster</option>
+              <option value="JeromeASF">JeromeASF</option>
+              <option value="Jestannii">Jestannii</option>
+              <option value="JoeyGraceffa">JoeyGraceffa</option>
+              <option value="KaraCorvus">KaraCorvus</option>
+              <option value="KarlJacobs">KarlJacobs</option>
+              <option value="Katherineelizabeth">Katherineelizabeth</option>
+              <option value="KingBurren">KingBurren</option>
+              <option value="Kontuz">Kontuz</option>
+              <option value="Krinios">Krinios</option>
+              <option value="Krtzyy">Krtzyy</option>
+              <option value="KryticZeuZ">KryticZeuZ</option>
+              <option value="LDShadowLady">LDShadowLady</option>
+              <option value="Laurenzside">Laurenzside</option>
+              <option value="Ludwig">Ludwig</option>
+              <option value="Marielitai">Marielitai</option>
+              <option value="Mefs">Mefs</option>
+              <option value="Michaelmcchill">Michaelmcchill</option>
+              <option value="MiniMuka">MiniMuka</option>
+              <option value="NettyPlays">NettyPlays</option>
+              <option value="Nihachu">Nihachu</option>
+              <option value="OrionSound">OrionSound</option>
+              <option value="PEARLBYTEZ">PEARLBYTEZ</option>
+              <option value="PearlescentMoon">PearlescentMoon</option>
+              <option value="PeteZahHutt">PeteZahHutt</option>
+              <option value="Ph1LzA">Ph1LzA</option>
+              <option value="Plumbella">Plumbella</option>
+              <option value="Pokimane">Pokimane</option>
+              <option value="Ponk">Ponk</option>
+              <option value="PrestonPlayz">PrestonPlayz</option>
+              <option value="Punz">Punz</option>
+              <option value="Quackity">Quackity</option>
+              <option value="Quig">Quig</option>
+              <option value="RTGame">RTGame</option>
+              <option value="Rafessor">Rafessor</option>
+              <option value="Ranboo">Ranboo</option>
+              <option value="Rendog">Rendog</option>
+              <option value="RipMika">RipMika</option>
+              <option value="Roguskii">Roguskii</option>
+              <option value="Ryguyrocky">Ryguyrocky</option>
+              <option value="SB737">SB737</option>
+              <option value="Sapnap">Sapnap</option>
+              <option value="ScotGriswold">ScotGriswold</option>
+              <option value="Seapeekay">Seapeekay</option>
+              <option value="Shubble">Shubble</option>
+              <option value="Skeppy">Skeppy</option>
+              <option value="Smajor1995">Smajor1995</option>
+              <option value="Smallishbeans">Smallishbeans</option>
+              <option value="Sneegsnag">Sneegsnag</option>
+              <option value="SolidarityGaming">SolidarityGaming</option>
+              <option value="Spifey">Spifey</option>
+              <option value="Steph0sims">Steph0sims</option>
+              <option value="Strawburry17">Strawburry17</option>
+              <option value="Sylvee">Sylvee</option>
+              <option value="TankMatt">TankMatt</option>
+              <option value="TapL">TapL</option>
+              <option value="Technoblade">Technoblade</option>
+              <option value="TommyInnit">TommyInnit</option>
+              <option value="ToxxxicSupport">ToxxxicSupport</option>
+              <option value="Tubbo">Tubbo</option>
+              <option value="Vikkstar">Vikkstar</option>
+              <option value="Vixella">Vixella</option>
+              <option value="Voiceoverpete">Voiceoverpete</option>
+              <option value="WilburSoot">WilburSoot</option>
+              <option value="Wisp">Wisp</option>
+              <option value="Wolv21">Wolv21</option>
+              <option value="Yammy">Yammy</option>
+              <option value="YeetDaisie">YeetDaisie</option>
+              <option value="fWhip">fWhip</option>
+              <option value="fruitberries">fruitberries</option>
+              <option value="iHasCupquake">iHasCupquake</option>
+              <option value="iJevin">iJevin</option>
+              <option value="iicbunny">iicbunny</option>
+              <option value="iskall85">iskall85</option>
+              <option value="uwuCorbin">uwuCorbin</option>
+              <option value="vGumiho">vGumiho</option>
+            </select>
+            <select id="tm4" name="tm4">
+              <option value="5up">5up</option>
+              <option value="Antfrost">Antfrost</option>
+              <option value="Asnazum">Asnazum</option>
+              <option value="BBPaws">BBPaws</option>
+              <option value="BadBoyHalo">BadBoyHalo</option>
+              <option value="Bitzel">Bitzel</option>
+              <option value="Calvin">Calvin</option>
+              <option value="CaptainPuffy">CaptainPuffy</option>
+              <option value="CaptainSparklez">CaptainSparklez</option>
+              <option value="ConnorEatsPants">ConnorEatsPants</option>
+              <option value="Cubfan135">Cubfan135</option>
+              <option value="DanTDM">DanTDM</option>
+              <option value="DethRidge">DethRidge</option>
+              <option value="DrGluon">DrGluon</option>
+              <option value="Dream">Dream</option>
+              <option value="Eret">Eret</option>
+              <option value="F1NN5TER">F1NN5TER</option>
+              <option value="FalseSymmetry">FalseSymmetry</option>
+              <option value="FlorianFunke">FlorianFunke</option>
+              <option value="Fundy">Fundy</option>
+              <option value="GeminiTay">GeminiTay</option>
+              <option value="GeorgeNotFound">GeorgeNotFound</option>
+              <option value="GizzyGazza">GizzyGazza</option>
+              <option value="Graser10">Graser10</option>
+              <option value="Grian">Grian</option>
+              <option value="HBomb94">HBomb94</option>
+              <option value="Illumina">Illumina</option>
+              <option value="InTheLittleWood">InTheLittleWood</option>
+              <option value="ItsJustOriah">ItsJustOriah</option>
+              <option value="JackManifoldTV">JackManifoldTV</option>
+              <option value="JackSucksAtLife">JackSucksAtLife</option>
+              <option value="JamesCharles">JamesCharles</option>
+              <option value="JamesTurner">JamesTurner</option>
+              <option value="Jameskii">Jameskii</option>
+              <option value="JcTheCaster">JcTheCaster</option>
+              <option value="JeromeASF">JeromeASF</option>
+              <option value="Jestannii">Jestannii</option>
+              <option value="JoeyGraceffa">JoeyGraceffa</option>
+              <option value="KaraCorvus">KaraCorvus</option>
+              <option value="KarlJacobs">KarlJacobs</option>
+              <option value="Katherineelizabeth">Katherineelizabeth</option>
+              <option value="KingBurren">KingBurren</option>
+              <option value="Kontuz">Kontuz</option>
+              <option value="Krinios">Krinios</option>
+              <option value="Krtzyy">Krtzyy</option>
+              <option value="KryticZeuZ">KryticZeuZ</option>
+              <option value="LDShadowLady">LDShadowLady</option>
+              <option value="Laurenzside">Laurenzside</option>
+              <option value="Ludwig">Ludwig</option>
+              <option value="Marielitai">Marielitai</option>
+              <option value="Mefs">Mefs</option>
+              <option value="Michaelmcchill">Michaelmcchill</option>
+              <option value="MiniMuka">MiniMuka</option>
+              <option value="NettyPlays">NettyPlays</option>
+              <option value="Nihachu">Nihachu</option>
+              <option value="OrionSound">OrionSound</option>
+              <option value="PEARLBYTEZ">PEARLBYTEZ</option>
+              <option value="PearlescentMoon">PearlescentMoon</option>
+              <option value="PeteZahHutt">PeteZahHutt</option>
+              <option value="Ph1LzA">Ph1LzA</option>
+              <option value="Plumbella">Plumbella</option>
+              <option value="Pokimane">Pokimane</option>
+              <option value="Ponk">Ponk</option>
+              <option value="PrestonPlayz">PrestonPlayz</option>
+              <option value="Punz">Punz</option>
+              <option value="Quackity">Quackity</option>
+              <option value="Quig">Quig</option>
+              <option value="RTGame">RTGame</option>
+              <option value="Rafessor">Rafessor</option>
+              <option value="Ranboo">Ranboo</option>
+              <option value="Rendog">Rendog</option>
+              <option value="RipMika">RipMika</option>
+              <option value="Roguskii">Roguskii</option>
+              <option value="Ryguyrocky">Ryguyrocky</option>
+              <option value="SB737">SB737</option>
+              <option value="Sapnap">Sapnap</option>
+              <option value="ScotGriswold">ScotGriswold</option>
+              <option value="Seapeekay">Seapeekay</option>
+              <option value="Shubble">Shubble</option>
+              <option value="Skeppy">Skeppy</option>
+              <option value="Smajor1995">Smajor1995</option>
+              <option value="Smallishbeans">Smallishbeans</option>
+              <option value="Sneegsnag">Sneegsnag</option>
+              <option value="SolidarityGaming">SolidarityGaming</option>
+              <option value="Spifey">Spifey</option>
+              <option value="Steph0sims">Steph0sims</option>
+              <option value="Strawburry17">Strawburry17</option>
+              <option value="Sylvee">Sylvee</option>
+              <option value="TankMatt">TankMatt</option>
+              <option value="TapL">TapL</option>
+              <option value="Technoblade">Technoblade</option>
+              <option value="TommyInnit">TommyInnit</option>
+              <option value="ToxxxicSupport">ToxxxicSupport</option>
+              <option value="Tubbo">Tubbo</option>
+              <option value="Vikkstar">Vikkstar</option>
+              <option value="Vixella">Vixella</option>
+              <option value="Voiceoverpete">Voiceoverpete</option>
+              <option value="WilburSoot">WilburSoot</option>
+              <option value="Wisp">Wisp</option>
+              <option value="Wolv21">Wolv21</option>
+              <option value="Yammy">Yammy</option>
+              <option value="YeetDaisie">YeetDaisie</option>
+              <option value="fWhip">fWhip</option>
+              <option value="fruitberries">fruitberries</option>
+              <option value="iHasCupquake">iHasCupquake</option>
+              <option value="iJevin">iJevin</option>
+              <option value="iicbunny">iicbunny</option>
+              <option value="iskall85">iskall85</option>
+              <option value="uwuCorbin">uwuCorbin</option>
+              <option value="vGumiho">vGumiho</option>
+            </select>
+            <button type="submit" class="btn btn-success btn-lg" name="btn">Predict</button>
+          </form>
+          <br>
+          <!-- image preview -->
+        </h2>
+        <!-- End Image preview -->
+        <h1 id='predictText'>{{data}}</h1>
+      </section>
+      </section>
+  </body>
+  </class>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <style>
+    .nnimg {
+      height: 71vh;
+      width: 134vh;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  </style>
+</html>
+<style>
+  h1 {
+    color: #fff;
+    text-align: center
+  }
+
+  h2 {
+    color: #fff;
+    text-align: center
+  }
+
+  h3 {
+    color: #fff;
+    text-align: center
+  }
+
+  p {
+    color: #fff;
+    text-align: center
+  }
+
+  section {
+    height: 100vh
+  }
+
+  .body1 {
+    background-color: #718387
+  }
+
+  #logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 1000px
+  }
+
+  .btn-success {
+    background-color: #587850
+  }
+
+  #logo {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh
+  }
+</style>
