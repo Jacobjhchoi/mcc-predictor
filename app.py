@@ -40,7 +40,7 @@ def prediction():
 
 	# predictions
 	pred = loaded_model.predict(predictionDF)
-	pred_final = round(pred[0][0])
+	pred_final = round(pred[0][0], 2)
 	output = 'Team: ' + team_names[0] + ', ' + team_names[1] + ', ' + team_names[2] + ', ' + team_names[3] + ' will place around position #' + str(pred_final)
 	print(output)
 
